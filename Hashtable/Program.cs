@@ -46,6 +46,19 @@ namespace Hashtable
                 }
             }
 
+            foreach (string word in inputArray)
+            {
+                if (hash.Get(word) == 0)
+                {
+                    hash.Remove(word, 1);
+
+                }
+                else
+                {
+                    int value = hash.Get(word) + 1;
+                    hash.Set(word, value);
+                }
+            }
             string[] newInputArray = inputArray.Distinct().ToArray();
             foreach (var word in newInputArray)
             {

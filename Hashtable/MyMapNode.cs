@@ -114,7 +114,7 @@ namespace Hashtable
             }
         }
 
-        internal void Set(K key, V value)
+        internal void Set(K key, V value)   //method to set the value for paragraph sequence
         {
             int position = GetArrayPosition(key);
             var linkedList = GetLinkedList(position);
@@ -143,7 +143,7 @@ namespace Hashtable
             return default(V);
         }
 
-        protected int GetArrayPosition(K key)
+        protected int GetArrayPosition(K key) //to get array position
         {
             int position = key.GetHashCode() % size;
             return Math.Abs(position);
@@ -164,4 +164,4 @@ namespace Hashtable
 
 
 }
-}
+
