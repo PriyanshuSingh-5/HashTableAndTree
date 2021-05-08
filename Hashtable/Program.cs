@@ -26,6 +26,8 @@ namespace Hashtable
             binarySearchTree.Insert(67);
             binarySearchTree.Display();
             binarySearchTree.Size();
+            binarySearchTree.Search(63,binarySearchTree);
+            Console.WriteLine("The element 63 exists in the BST: " + binarySearchTree.Search(63, binarySearchTree));
             Console.ReadLine();
         }
     }

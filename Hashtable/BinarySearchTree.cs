@@ -11,17 +11,17 @@ namespace Hashtable
         public T NodeData { get; set; }
         public BinarySearchTree<T> Left { get; set; }
         public BinarySearchTree<T> Right { get; set; }
-        public BinarySearchTree(T nodedata)
+        public BinarySearchTree(T nodedata)//initializing the tree nodes
         {
             NodeData = nodedata;
             Left = null;
             Right = null;
         }
 
-        public void Insert(T item)
+        public void Insert(T item)  //method to insert in tree
         {
             T currentValue = NodeData;
-            if (currentValue.CompareTo(item) > 0)
+            if (currentValue.CompareTo(item) > 0) //condition for inserting in left node
             {
                 if (Left == null)
                 {
@@ -40,7 +40,7 @@ namespace Hashtable
                 }
                 else
                 {
-                    Right.Insert(item);
+                    Right.Insert(item); //else insert in right node
                 }
             }
         }
@@ -60,6 +60,31 @@ namespace Hashtable
                 rightCount++;
                 Right.Display();
             }
+        }
+
+        bool flag = false;
+        public bool Search(T item, BinarySearchTree<T> tree) //search the node in the binary tree
+        {
+            if (tree == null)
+                return false;
+            if (tree.NodeData.Equals(item))
+            {
+                flag = true;
+            }
+            else if (tree.NodeData.CompareTo(item) < 0)
+            {
+                Search(item, tree.Right);
+            }
+            else
+            {
+                Search(item, tree.Left);
+            }
+            return flag;
+        }
+
+        public void Size() //to get the size of the tree
+        {
+            Console.WriteLine("The size of the BST is: " + (1 + leftCount + rightCount));
         }
     }
 }
